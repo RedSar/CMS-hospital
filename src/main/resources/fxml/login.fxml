@@ -160,7 +160,7 @@
                      </styleClass>
                   </TextField>
                   <CheckBox fx:id="cbxShowPasswordReg" layoutX="35.0" layoutY="318.0" mnemonicParsing="false" onAction="#registerShowPassword" text="Afficher le mot de passe" />
-                  <Button fx:id="btnSignIn1" layoutX="35.0" layoutY="372.0" mnemonicParsing="false" onAction="#onSignIn" prefHeight="40.0" prefWidth="250.0" stylesheets="@../css/main-page.css" text="Créer un compte">
+                  <Button fx:id="btnRegister" layoutX="35.0" layoutY="372.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="40.0" prefWidth="250.0" stylesheets="@../css/main-page.css" text="Créer un compte">
                      <styleClass>
                         <String fx:value="btn-1" />
                         <String fx:value="radius" />

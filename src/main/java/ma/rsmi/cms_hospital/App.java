@@ -13,7 +13,7 @@ public class App extends Application {
   public void start(Stage stage) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/login.fxml"));
     Scene scene = new Scene(fxmlLoader.load());
-    stage.setTitle("CMS Hôpitale | Portail administrateur");
+    stage.setTitle("CMS hospital | Point d'accés");
     stage.setScene(scene);
     stage.show();
   }

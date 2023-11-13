@@ -14,8 +14,17 @@ public class UserDAOImpl implements UserDAO{
 
   public static void main(String[] args) {
     UserDAO dao = new UserDAOImpl();
-
-    System.out.println("Users by username " + dao.findByUsernameUndPassword("b_sara", "sara"));
+    dao.save(new User(
+            "maram@rsmi.ma",
+            "maram14",
+            "maram",
+            "Maram Guerchal",
+            "/images/maram.png",
+            "Femelle"
+            ,
+            LocalDate.of(2014,03,24)
+    ));
+    System.out.println("Users " + dao.findAll());
   }
 
   private static  Connection getConnection(){
@@ -99,6 +108,48 @@ public class UserDAOImpl implements UserDAO{
             rs.getString("image"),
             rs.getString("gender"),
             rs.getDate("date").toLocalDate()
+        );
+      }
+
+
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (connection != null) connection.close();
+        if (pstm != null) pstm.close();
+        if (rs != null) rs.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+    return user;
+  }
+
+  @Override
+  public User findByUsername(String username) {
+    connection = getConnection();
+    User user = null;
+    try {
+      pstm = connection.prepareStatement("SELECT * FROM user WHERE username=?");
+      pstm.setString(1, username);
+
+      rs = pstm.executeQuery();
+      if (!rs.isBeforeFirst()) {
+        System.out.println("❌ User not found with the given username: " + username);
+        return null;
+      }
+
+      if (rs.next()) {
+        user = new User(rs.getInt("id"),
+                rs.getString("email"),
+                rs.getString("username"),
+                rs.getString("password"),
+                rs.getString("full_name"),
+                rs.getString("image"),
+                rs.getString("gender"),
+                rs.getDate("date").toLocalDate()
         );
       }
 

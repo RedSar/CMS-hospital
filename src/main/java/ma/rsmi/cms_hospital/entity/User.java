@@ -35,6 +35,14 @@ public class User {
     this.date = date;
   }
 
+  public User( String email, String username, String password, LocalDate date) {
+
+    this.email = email;
+    this.username = username;
+    this.password = password;
+    this.date = date;
+  }
+
   public int getId() {
     return id;
   }
