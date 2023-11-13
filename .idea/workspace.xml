@@ -4,20 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Set up the design of the login and register form">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/AppState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Set up the login method in AdminPortalController">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/DoctorPortalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/LoginRegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/PatientPortalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/doctor-portal.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/patient-portal.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminMainFormController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminPortalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminPortalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin-main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin-main-form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin-main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin-portal.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,12 +61,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "last_opened_file_path": "/Users/rsmi/IdeaProjects/CMS_hospital/src/main/resources/fxml",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ma.rsmi.cms_hospital.utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
