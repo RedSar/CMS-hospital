@@ -1,0 +1,27 @@
+2023-11-16 12:58:02.368655+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "CREATE TABLE [*]IF NOT EXIST  doctors(\000aid INT AUTO_INCREMENT PRIMARY KEY,\000adoctorId VARCHAR(100) NOT NULL,\000aemail VARCHAR(100) NOT NULL,\000afull_name VARCHAR(100) NOT NULL,\000apassword VARCHAR(255) NOT NULL,\000astatus VARCHAR(50) NOT NULL,\000amobile BIGINT ,\000aspecialized VARCHAR(100),\000aaddress VARCHAR(100),\000aimage VARCHAR(100),\000agender VARCHAR(50),\000adate DATETIME NOT NULL,\000alast_modify_date DATETIME,\000alast_delete_date DATETIME\000a);"; attendu "identifier"
+Syntax error in SQL statement "CREATE TABLE [*]IF NOT EXIST  doctors(\000aid INT AUTO_INCREMENT PRIMARY KEY,\000adoctorId VARCHAR(100) NOT NULL,\000aemail VARCHAR(100) NOT NULL,\000afull_name VARCHAR(100) NOT NULL,\000apassword VARCHAR(255) NOT NULL,\000astatus VARCHAR(50) NOT NULL,\000amobile BIGINT ,\000aspecialized VARCHAR(100),\000aaddress VARCHAR(100),\000aimage VARCHAR(100),\000agender VARCHAR(50),\000adate DATETIME NOT NULL,\000alast_modify_date DATETIME,\000alast_delete_date DATETIME\000a);"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXIST  doctors(
+id INT AUTO_INCREMENT PRIMARY KEY,
+doctorId VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+full_name VARCHAR(100) NOT NULL,
+password VARCHAR(255) NOT NULL,
+status VARCHAR(50) NOT NULL,
+mobile BIGINT ,
+specialized VARCHAR(100),
+address VARCHAR(100),
+image VARCHAR(100),
+gender VARCHAR(50),
+date DATETIME NOT NULL,
+last_modify_date DATETIME,
+last_delete_date DATETIME
+); [42001-224]
+2023-11-16 12:59:44.463602+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "UPDATE doctors SET doctorID=?, password=?, full_name=?, email=?, status=?, gender=?,mobile=?,specialized=?,address=?,image=?,date=?,last_modify_date=?,last_delete_date=?, [*]WHERE id=?"; attendu "identifier"
+Syntax error in SQL statement "UPDATE doctors SET doctorID=?, password=?, full_name=?, email=?, status=?, gender=?,mobile=?,specialized=?,address=?,image=?,date=?,last_modify_date=?,last_delete_date=?, [*]WHERE id=?"; expected "identifier"; SQL statement:
+UPDATE doctors SET doctorID=?, password=?, full_name=?, email=?, status=?, gender=?,mobile=?,specialized=?,address=?,image=?,date=?,last_modify_date=?,last_delete_date=?, WHERE id=? [42001-224]
+2023-11-16 13:00:12.936945+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "UPDATE doctors SET doctorID=?, password=?, full_name=?, email=?, status=?, gender=?,mobile=?,specialized=?,address=?,image=?,date=?,last_modify_date=?,last_delete_date=?, [*]WHERE id=?"; attendu "identifier"
+Syntax error in SQL statement "UPDATE doctors SET doctorID=?, password=?, full_name=?, email=?, status=?, gender=?,mobile=?,specialized=?,address=?,image=?,date=?,last_modify_date=?,last_delete_date=?, [*]WHERE id=?"; expected "identifier"; SQL statement:
+UPDATE doctors SET doctorID=?, password=?, full_name=?, email=?, status=?, gender=?,mobile=?,specialized=?,address=?,image=?,date=?,last_modify_date=?,last_delete_date=?, WHERE id=? [42001-224]
