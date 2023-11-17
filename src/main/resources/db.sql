@@ -11,3 +11,20 @@ image VARCHAR(100),
 gender VARCHAR(50),
 date DATE NOT NULL
 );
+
+CREATE TABLE doctors(
+id INT AUTO_INCREMENT PRIMARY KEY,
+doctorId VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+fullName VARCHAR(100) NOT NULL,
+password VARCHAR(255) NOT NULL,
+status VARCHAR(50) NOT NULL,
+mobile BIGINT ,
+specialized VARCHAR(100),
+address VARCHAR(100),
+image VARCHAR(100),
+gender VARCHAR(50),
+date DATETIME NOT NULL,
+last_modify_date DATETIME,
+last_delete_date DATETIME
+);

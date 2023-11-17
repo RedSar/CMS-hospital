@@ -22,6 +22,13 @@ public class AlertMessage {
     alert.setContentText(message);
     alert.showAndWait();
   }
+  public void warn(String message){
+    alert = new Alert(Alert.AlertType.WARNING);
+    alert.setTitle("Message d'avertissement");
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    alert.showAndWait();
+  }
   public boolean confirmationMessage(String message) {
 
     alert = new Alert(Alert.AlertType.CONFIRMATION);

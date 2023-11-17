@@ -4,20 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Set up the login method in AdminPortalController">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/DoctorPortalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/LoginRegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/PatientPortalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/doctor-portal.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/patient-portal.fxml" afterDir="false" />
+    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Set up the design of the login and register form">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/entity/Doctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/DoctorDAOImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminMainFormController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminPortalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminPortalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/DoctorPortalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/DoctorPortalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/LoginRegisterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/AlertMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/AlertMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin-main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin-portal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin-portal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin-portal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/doctor-portal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/doctor-portal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/patient-portal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/patient-portal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +45,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/LoginRegisterController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -54,29 +67,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/rsmi/IdeaProjects/CMS_hospital/src/main/resources/fxml",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RadouaneGuerchal/IdeaProjects/Hibernat6Demo&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ma.rsmi.cms_hospital.utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
+      <recent name="C:\Users\RadouaneGuerchal\IdeaProjects\CMS-hospital\src\main\resources\fxml" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
       <recent name="$PROJECT_DIR$/src/main/resources/ma/rsmi/cms_hospital/fxml" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ma.rsmi.cms_hospital.dao" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -85,7 +104,7 @@
       <module name="CMS_hospital" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ma.rsmi.cms_hospital.dao.*" />
+          <option name="PATTERN" value="ma.rsmi.cms_hospital.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,8 +112,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDAOImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ma.rsmi.cms_hospital.dao.UserDAOImpl" />
+    <configuration name="DoctorDAOImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ma.rsmi.cms_hospital.dao.DoctorDAOImpl" />
       <module name="CMS_hospital" />
       <extension name="coverage">
         <pattern>
@@ -106,15 +125,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserManagerHib" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ma.rsmi.cms_hospital.dao.UserManagerHib" />
+    <configuration name="DoctorDAOImplTest.deleteById_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMS_hospital" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ma.rsmi.cms_hospital.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DoctorDAOImplTest" />
+      <option name="METHOD_NAME" value="deleteById_test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DoctorDAOImplTest.save_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMS_hospital" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DoctorDAOImplTest" />
+      <option name="METHOD_NAME" value="save_test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DoctorDAOImplTest.update_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMS_hospital" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DoctorDAOImplTest" />
+      <option name="METHOD_NAME" value="update_test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,8 +158,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.UserDAOImpl" />
-        <item itemvalue="Application.UserManagerHib" />
+        <item itemvalue="Application.DoctorDAOImpl" />
+        <item itemvalue="JUnit.DoctorDAOImplTest.save_test" />
+        <item itemvalue="JUnit.DoctorDAOImplTest.deleteById_test" />
+        <item itemvalue="JUnit.DoctorDAOImplTest.update_test" />
       </list>
     </recent_temporary>
   </component>

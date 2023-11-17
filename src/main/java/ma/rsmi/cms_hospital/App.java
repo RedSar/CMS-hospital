@@ -12,7 +12,7 @@ import java.io.IOException;
 public class App extends Application {
   @Override
   public void start(Stage stage) throws IOException {
-    Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("/fxml/admin-portal.fxml"));
     Scene scene = new Scene(root);
     stage.setTitle("CMS hospital | Point d'accés");
     stage.setScene(scene);

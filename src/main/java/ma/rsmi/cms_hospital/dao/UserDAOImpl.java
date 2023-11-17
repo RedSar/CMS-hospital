@@ -3,9 +3,10 @@ package ma.rsmi.cms_hospital.dao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import ma.rsmi.cms_hospital.entity.User;
+import ma.rsmi.cms_hospital.utils.DBConnection;
+
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ResourceBundle;
 
 public class UserDAOImpl implements UserDAO{
   Connection connection = null;
@@ -27,26 +28,11 @@ public class UserDAOImpl implements UserDAO{
     System.out.println("Users " + dao.findAll());
   }
 
-  private static  Connection getConnection(){
-    ResourceBundle rb = ResourceBundle.getBundle("db");
-    Connection connection=null;
-    try {
-      connection = DriverManager.getConnection(
-          rb.getString("mysql.url"),
-          rb.getString("user"),
-          rb.getString("password"));
-      System.out.println("✅Connection succeeded");
 
-    } catch (SQLException e){
-      System.out.println("❌ Connection Failed");
-      e.printStackTrace();
-    }
-    return connection;
-  }
 
   @Override
   public User findById(int id) {
-    connection = getConnection();
+    connection = DBConnection.getConnection();
     User user = null;
     try {
       pstm = connection.prepareStatement("SELECT * FROM user WHERE id=?");
@@ -86,8 +72,8 @@ public class UserDAOImpl implements UserDAO{
   }
 
   @Override
-  public User findByUsernameUndPassword(String username, String password) {
-    connection = getConnection();
+  public User findByUsernameAndPassword(String username, String password) {
+    connection = DBConnection.getConnection();
     User user = null;
     try {
       pstm = connection.prepareStatement("SELECT * FROM user WHERE username=? AND password=?");
@@ -129,7 +115,7 @@ public class UserDAOImpl implements UserDAO{
 
   @Override
   public User findByUsername(String username) {
-    connection = getConnection();
+    connection = DBConnection.getConnection();
     User user = null;
     try {
       pstm = connection.prepareStatement("SELECT * FROM user WHERE username=?");
@@ -173,7 +159,7 @@ public class UserDAOImpl implements UserDAO{
   public ObservableList<User> findAll() {
     ObservableList<User> users = FXCollections.observableArrayList();
 
-    connection = getConnection();
+    connection = DBConnection.getConnection();
     String query = "SELECT * FROM user";
     try {
       pstm = connection.prepareStatement(query);
@@ -213,7 +199,7 @@ public class UserDAOImpl implements UserDAO{
 
   @Override
   public void deleteById(int id) {
-    connection = getConnection();
+    connection = DBConnection.getConnection();
     String query = "SELECT * FROM user WHERE id=?";
 
     try {
@@ -253,7 +239,7 @@ public class UserDAOImpl implements UserDAO{
 
   @Override
   public void save(User user) {
-    connection = getConnection();
+    connection = DBConnection.getConnection();
     String query = "INSERT INTO user(email, username, password, full_name, image, gender, date) VALUES(?, ?, ?, ?, ?, ?, ? )";
     try {
       pstm = connection.prepareStatement(query);
@@ -284,7 +270,7 @@ public class UserDAOImpl implements UserDAO{
   @Override
   public void update(User user) {
     String query = "SELECT * FROM user WHERE id=?";
-    connection = getConnection();
+    connection = DBConnection.getConnection();
 
     try {
       pstm = connection.prepareStatement(query);
