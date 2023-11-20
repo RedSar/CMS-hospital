@@ -86,7 +86,7 @@ public class AdminPortalController implements Initializable {
       } else {
         AppState.adminId = user.getId();
         AppState.adminUsername = user.getUsername();
-        switchPage();
+        alert.info("Vous êtes connecté !");
       }
     }
   }
@@ -132,7 +132,7 @@ public class AdminPortalController implements Initializable {
 
         alert.info("Enregistrement réussi");
 
-        switchForm();
+
       }
     }
   }
@@ -201,10 +201,9 @@ public class AdminPortalController implements Initializable {
   private void switchPage() {
 
     switch(cmbUserType.getSelectionModel().getSelectedItem()){
-      case null:
-        alert.error("Merci de préciser votre rôle");break;
-      case "Administrateur":
-        Helper.switchScene(this.getClass(), "/fxml/admin-portal.fxml", "CMS hospital | Portail administrateur", btnSignIn);break;
+
+     // case "Administrateur":
+     //   Helper.switchScene(this.getClass(), "/fxml/admin-portal.fxml", "CMS hospital | Portail Administrateur", btnSignIn);break;
       case "Médecin":
         Helper.switchScene(this.getClass(), "/fxml/doctor-portal.fxml", "CMS hospital | Portail Médecin", btnSignIn);break;
       case "Patient":

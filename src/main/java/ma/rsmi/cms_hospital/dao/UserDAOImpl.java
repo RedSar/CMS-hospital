@@ -35,7 +35,7 @@ public class UserDAOImpl implements UserDAO{
     connection = DBConnection.getConnection();
     User user = null;
     try {
-      pstm = connection.prepareStatement("SELECT * FROM user WHERE id=?");
+      pstm = connection.prepareStatement("SELECT * FROM admin WHERE id=?");
       pstm.setInt(1, id);
       rs = pstm.executeQuery();
       if (!rs.isBeforeFirst()) {
@@ -76,7 +76,7 @@ public class UserDAOImpl implements UserDAO{
     connection = DBConnection.getConnection();
     User user = null;
     try {
-      pstm = connection.prepareStatement("SELECT * FROM user WHERE username=? AND password=?");
+      pstm = connection.prepareStatement("SELECT * FROM admin WHERE username=? AND password=?");
       pstm.setString(1, username);
       pstm.setString(2, password);
       rs = pstm.executeQuery();
@@ -118,7 +118,7 @@ public class UserDAOImpl implements UserDAO{
     connection = DBConnection.getConnection();
     User user = null;
     try {
-      pstm = connection.prepareStatement("SELECT * FROM user WHERE username=?");
+      pstm = connection.prepareStatement("SELECT * FROM admin WHERE username=?");
       pstm.setString(1, username);
 
       rs = pstm.executeQuery();
@@ -160,7 +160,7 @@ public class UserDAOImpl implements UserDAO{
     ObservableList<User> users = FXCollections.observableArrayList();
 
     connection = DBConnection.getConnection();
-    String query = "SELECT * FROM user";
+    String query = "SELECT * FROM admin";
     try {
       pstm = connection.prepareStatement(query);
       rs = pstm.executeQuery();
@@ -200,7 +200,7 @@ public class UserDAOImpl implements UserDAO{
   @Override
   public void deleteById(int id) {
     connection = DBConnection.getConnection();
-    String query = "SELECT * FROM user WHERE id=?";
+    String query = "SELECT * FROM admin WHERE id=?";
 
     try {
       pstm = connection.prepareStatement(query);
@@ -210,7 +210,7 @@ public class UserDAOImpl implements UserDAO{
 
       if (rs.isBeforeFirst()) {
         try {
-          query = "DELETE FROM user WHERE id=?";
+          query = "DELETE FROM admin WHERE id=?";
           pstm = connection.prepareStatement(query);
           pstm.setInt(1, id);
           pstm.executeUpdate();
@@ -240,7 +240,7 @@ public class UserDAOImpl implements UserDAO{
   @Override
   public void save(User user) {
     connection = DBConnection.getConnection();
-    String query = "INSERT INTO user(email, username, password, full_name, image, gender, date) VALUES(?, ?, ?, ?, ?, ?, ? )";
+    String query = "INSERT INTO admin(email, username, password, full_name, image, gender, date) VALUES(?, ?, ?, ?, ?, ?, ? )";
     try {
       pstm = connection.prepareStatement(query);
       pstm.setString(1, user.getEmail());

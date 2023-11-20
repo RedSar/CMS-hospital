@@ -28,3 +28,26 @@ date DATETIME NOT NULL,
 last_modify_date DATETIME,
 last_delete_date DATETIME
 );
+CREATE TABLE patients (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    patientId VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    mobile BIGINT ,
+    address VARCHAR(255),
+    image VARCHAR(255),
+    description TEXT,
+    diagnosis TEXT,
+    treatment TEXT,
+	doctor_id INT,
+    specialized VARCHAR(100),
+    gender VARCHAR(50),
+    date DATETIME NOT NULL,
+    last_date_modify DATETIME,
+    last_date_delete DATETIME,
+    status VARCHAR(50) NOT NULL,
+    FOREIGN KEY (doctor_id) REFERENCES doctors(id)
+);
+
+ALTER TABLE patients
+DROP FOREIGN KEY patients_ibfk_1;

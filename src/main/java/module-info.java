@@ -8,7 +8,6 @@ module ma.rsmi.cms_hospital {
   requires java.sql;
     requires net.synedra.validatorfx;
 
-
     opens fxml to javafx.fxml;
   opens ma.rsmi.cms_hospital.controllers to javafx.fxml;
 

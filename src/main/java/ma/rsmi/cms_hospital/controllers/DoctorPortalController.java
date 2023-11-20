@@ -72,11 +72,9 @@ public class DoctorPortalController implements Initializable {
 
   private void setDoctorID() {
     int maxId = dao.getMaxId();
-    System.out.println("maxId -> " + maxId);
     int dId = maxId + 1;
     tfDoctorIdRegister.setPromptText("CMSH-DID-" + dId);
     tfDoctorIdRegister.setText("CMSH-DID-" + dId);
-    System.out.println("tfDoctorIdRegister ->" + tfDoctorIdRegister.getText());
     tfDoctorIdRegister.setDisable(true);
   }
 
@@ -227,16 +225,14 @@ public class DoctorPortalController implements Initializable {
   private void switchPage() {
 
     switch(cmbUserType.getSelectionModel().getSelectedItem()){
-      case null:
-        alert.error("Merci de préciser votre rôle");break;
+
       case "Administrateur":
         Helper.switchScene(this.getClass(), "/fxml/admin-portal.fxml", "CMS hospital | Portail administrateur", btnSignIn);break;
-      case "Médecin":
-        Helper.switchScene(this.getClass(), "/fxml/admin-portal.fxml", "CMS hospital | Portail Médecin", btnSignIn);break;
+      //case "Médecin":
+       // Helper.switchScene(this.getClass(), "/fxml/admin-portal.fxml", "CMS hospital | Portail Médecin", btnSignIn);break;
       case "Patient":
-        Helper.switchScene(this.getClass(), "/fxml/admin-portal.fxml", "CMS hospital | Portail Patient", btnSignIn);break;
-      default:
-        throw new IllegalStateException("Unexpected value -> " + cmbUserType.getSelectionModel().getSelectedItem());
+        Helper.switchScene(this.getClass(), "/fxml/patient-portal.fxml", "CMS hospital | Portail Patient", btnSignIn);break;
+
     }
 
 

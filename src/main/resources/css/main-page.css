@@ -5,34 +5,44 @@
 .radius{
     -fx-background-radius: 4px;
 }
-
+.label-1 {
+    -fx-text-fill: linear-gradient(to bottom right, #188ba7, #306090);
+}
 .textfield-1{
     -fx-border-color: #000;
     -fx-border-width: .3px;
-    -fx-font-family: Tahoma;
+    -fx-font-family: Roboto;
 }
 .textfield-1:focused{
     -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
     -fx-border-width: 1px;
 }
 
+.label-2 {
+    -fx-text-fill: linear-gradient(to bottom right, #A2D240, #1B8B00);
+
+}
+.label-3 {
+    -fx-text-fill:linear-gradient(to bottom right, #FFCC2F, #EF5734);
+
+}
 .textfield-2{
     -fx-border-color: #000;
     -fx-border-width: .3px;
-    -fx-font-family: Tahoma;
+    -fx-font-family: Roboto;
 }
 .textfield-2:focused{
-    -fx-border-color: linear-gradient(to bottom right, #a413a1, #64308e);
+    -fx-border-color: linear-gradient(to bottom right, #A2D240, #1B8B00);
     -fx-border-width: 1px;
 }
 
 .textfield-3{
     -fx-border-color: #000;
     -fx-border-width: .3px;
-    -fx-font-family: Tahoma;
+    -fx-font-family: Roboto;
 }
 .textfield-3:focused{
-    -fx-border-color: linear-gradient(to bottom right, #a31336, #861d2a);
+    -fx-border-color: linear-gradient(to bottom right, #FFCC2F, #EF5734);
     -fx-border-width: 1px;
 }
 
@@ -40,31 +50,31 @@
     -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
     -fx-cursor: hand;
     -fx-text-fill: #fff;
-    -fx-font-size: 16px;
-    -fx-font-family: Arial;
+    -fx-font-size: 18px;
+    -fx-font-family: Roboto;
 }
 .btn-1:hover{
     -fx-background-color: linear-gradient(to bottom right, #11a7c9, #2765a4);
 }
 
 .btn-2{
-    -fx-background-color: linear-gradient(to bottom right, #a413a1, #64308e);
+    -fx-background-color: linear-gradient(to bottom right, #A2D240, #1B8B00);
     -fx-cursor: hand;
     -fx-text-fill: #fff;
     -fx-font-size: 14px;
     -fx-font-family: Arial;
 }
 .btn-2:hover{
-    -fx-background-color: linear-gradient(to bottom right, #c512c5, #67289d);
+    -fx-background-color: linear-gradient(to bottom right, #8fb53e, #196f03);
 }
 
 .btn-3{
-    -fx-background-color: linear-gradient(to bottom right, #a31336, #861d2a);
+    -fx-background-color: linear-gradient(to bottom right, #FFCC2F, #EF5734);
     -fx-cursor: hand;
     -fx-text-fill: #fff;
     -fx-font-size: 14px;
     -fx-font-family: Arial;
 }
 .btn-3:hover{
-    -fx-background-color: linear-gradient(to bottom right, #bf0d3c, #9d1022);
+    -fx-background-color: linear-gradient(to bottom right, #d7a91e, #da411e);
 }
