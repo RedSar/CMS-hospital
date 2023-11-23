@@ -35,12 +35,14 @@
     -fx-background-color: linear-gradient(to bottom right, #a413a1, #64308e);
 }
 
-.nav-btn-1{
-    -fx-background-color: transparent;
+
+
+.nav-btn-1 , .nav-btn-header{
+    -fx-background-color: linear-gradient(to bottom right, #2588c9, #1475cb);
     -fx-border-color: #fff;
     -fx-border-width: .5px;
     -fx-text-fill: #fff;
-    -fx-font-family: Abel;
+    -fx-font-family: Roboto;
     -fx-cursor: hand;
     -fx-font-size: 13px;
     -fx-alignment: CENTER_LEFT;
@@ -53,6 +55,13 @@
     -fx-background-color: #fff;
     -fx-text-fill: #1475cb;
     -fx-fill:#1475cb;
+
+}
+
+.nav-btn-header:hover {
+    -fx-background-color: #fff;
+    -fx-text-fill: #1475cb;
+    -fx-border-color: linear-gradient(to bottom right, #2588c9, #1475cb);
 }
 
 .nav-btn-2{
@@ -60,7 +69,7 @@
     -fx-border-color: #fff;
     -fx-border-width: .5px;
     -fx-text-fill: #fff;
-    -fx-font-family: Arial;
+    -fx-font-family: Roboto;
     -fx-cursor: hand;
     -fx-font-size: 13px;
     -fx-alignment: CENTER_LEFT;
@@ -73,10 +82,10 @@
 .table-view{
     -fx-padding: 0;
     -fx-border-radius: 8px;
-    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-color: linear-gradient(to bottom right, #2588c9, #1475cb);
 }
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-background-color: linear-gradient(to bottom right, #2588c9, #1475cb);
     -fx-background-insets: 0 0 0 0;
     -fx-background-radius: 8px 8px 0 0 ;
 }
@@ -85,7 +94,7 @@
     -fx-background-color: transparent;
 }
 .table-view .column-header .label{
-    -fx-font-family: Arial;
+    -fx-font-family: Roboto;
     -fx-text-fill: #fff;
 }
 

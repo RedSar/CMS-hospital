@@ -6,7 +6,7 @@
     -fx-background-radius: 4px;
 }
 .label-1 {
-    -fx-text-fill: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-text-fill: linear-gradient(to bottom right, #2588c9, #1475cb);
 }
 .textfield-1{
     -fx-border-color: #000;
@@ -14,7 +14,7 @@
     -fx-font-family: Roboto;
 }
 .textfield-1:focused{
-    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-color: linear-gradient(to bottom right, #2588c9, #1475cb);
     -fx-border-width: 1px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .btn-1{
-    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-background-color: linear-gradient(to bottom right, #2588c9, #1475cb);
     -fx-cursor: hand;
     -fx-text-fill: #fff;
     -fx-font-size: 18px;

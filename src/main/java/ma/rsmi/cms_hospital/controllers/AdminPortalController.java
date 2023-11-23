@@ -87,6 +87,7 @@ public class AdminPortalController implements Initializable {
         AppState.adminId = user.getId();
         AppState.adminUsername = user.getUsername();
         alert.info("Vous êtes connecté !");
+        Helper.switchScene(this.getClass(),"/fxml/admin-dashboard.fxml","Tableau de bord |Administration",btnSignIn);
       }
     }
   }
