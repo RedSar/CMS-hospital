@@ -183,7 +183,7 @@
             <AnchorPane>
                <children>
                   <AnchorPane fx:id="apAdminDashboard" prefHeight="544.0" prefWidth="884.0" styleClass="white-bg"
-                              visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
                      <children>
                         <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="160.0" AnchorPane.leftAnchor="14.0"
@@ -598,7 +598,7 @@
                   </AnchorPane>
                   <AnchorPane fx:id="apProfile" layoutX="114.0" layoutY="102.0" prefHeight="560.0" prefWidth="886.0"
                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                              AnchorPane.topAnchor="0.0">
+                              AnchorPane.topAnchor="0.0" visible="false">
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="527.0" prefWidth="274.0"
                                     AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="14.0"

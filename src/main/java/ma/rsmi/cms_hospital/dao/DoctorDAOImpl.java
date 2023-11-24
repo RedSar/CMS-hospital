@@ -16,21 +16,8 @@ public class DoctorDAOImpl implements DoctorDAO{
 
   public static void main(String[] args) {
     DoctorDAO dao = new DoctorDAOImpl();
-    dao.save(new Doctor(
-            "DID-2",
-            "maram",
-           "Maram Guerchal",
-            "maram@gmail.com",
-            "confirm",
-            null,
-            null,
-            null,
-            null,
-            null
-    ));
+    System.out.println("Active Doctors: " + dao.getActiveDoctors());
   }
-
-
 
   @Override
   public Doctor findById(int id) {
@@ -293,8 +280,6 @@ public class DoctorDAOImpl implements DoctorDAO{
     return doctors;
   }
 
-
-
   @Override
   public void deleteById(int id) {
     connection = DBConnection.getConnection();
@@ -447,5 +432,31 @@ public class DoctorDAOImpl implements DoctorDAO{
       }
 
     }
+  }
+
+  @Override
+  public int getActiveDoctors() {
+    connection = DBConnection.getConnection();
+    int activeDoctors = 0;
+    try {
+      String query = "SELECT COUNT(id) as activeDoctors FROM cms_hospital.doctors WHERE status='active' AND last_delete_date is NULL;";
+      pstm = connection.prepareStatement(query);
+      rs = pstm.executeQuery();
+      System.out.println(Helper.now() + ":✅ query succeeded: " + query);
+      if (rs.next()) {
+        activeDoctors = rs.getInt("activeDoctors");
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (connection != null) connection.close();
+        if (pstm != null) pstm.close();
+        if (rs != null) rs.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+    return activeDoctors;
   }
 }

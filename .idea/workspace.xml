@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Adding the Admin dashboard (header and sidebar)">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2023_00_48_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2023_00_48__Changes_.xml" beforeDir="false" />
+    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Added : admin-dashboard.fxml sidebar functionalities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminPortalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminPortalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/dashbord.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/dashbord.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/main-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin-dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin-dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700504799557</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added : admin-dashboard.fxml sidebar functionalities">
+      <option name="closed" value="true" />
+      <created>1700780630092</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700780630092</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -207,7 +214,8 @@
     <MESSAGE value="Set up the design of the login and register form" />
     <MESSAGE value="Set up the design of the login and register form for doctors" />
     <MESSAGE value="Adding the Admin dashboard (header and sidebar)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding the Admin dashboard (header and sidebar)" />
+    <MESSAGE value="Added : admin-dashboard.fxml sidebar functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added : admin-dashboard.fxml sidebar functionalities" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,6 +2,7 @@ package ma.rsmi.cms_hospital.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
@@ -13,9 +14,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
-import java.util.List;
+import ma.rsmi.cms_hospital.dao.*;
+import ma.rsmi.cms_hospital.utils.AlertMessage;
+import ma.rsmi.cms_hospital.utils.AppState;
 
-public class AdminDashboardController {
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class AdminDashboardController implements Initializable {
+     private  final AlertMessage alert = new AlertMessage();
+     private final  DoctorDAO doctorDAO = new DoctorDAOImpl();
+     private final UserDAO adminDAO = new UserDAOImpl();
+     private final PatientDAO patientDAO = new PatientDAOImpl();
 
     @FXML
     private AreaChart<?, ?> acPatientsData;
@@ -347,5 +358,22 @@ public class AdminDashboardController {
 
     }
 
+    private void fetchStatics() {
+        lblActiveDoctors.setText(doctorDAO.getActiveDoctors() + "");
+        lblActivePatients.setText(patientDAO.getActivePatients() + "");
+        lblTotalPatient.setText(patientDAO.getTotalPatients() + "");
+    }
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        fetchStatics();
+        setAdminData();
+    }
+
+    private void setAdminData() {
+        lblUsername.setText(AppState.adminUsername);
+        lblAdminId.setText(AppState.adminId + "");
+        lblUsernameSidebar.setText(AppState.adminUsername);
+    }
 }

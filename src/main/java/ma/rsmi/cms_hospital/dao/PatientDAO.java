@@ -15,4 +15,6 @@ public interface PatientDAO {
   public abstract void deleteById(int id);
   public abstract void save(Patient patient);
   public abstract void update(Patient patient);
+  public abstract int getActivePatients();
+  public abstract int getTotalPatients();
 }

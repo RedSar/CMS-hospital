@@ -15,4 +15,5 @@ public interface DoctorDAO {
   public abstract void deleteById(int id);
   public abstract void save(Doctor doctor);
   public abstract void update(Doctor doctor);
+  public abstract int getActiveDoctors();
 }

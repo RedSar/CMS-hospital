@@ -16,7 +16,8 @@ public class PatientDAOImpl implements PatientDAO{
 
   public static void main(String[] args) {
     PatientDAO dao = new PatientDAOImpl();
-   dao.save(new Patient("PID-777","passs", "Full Name Test","confirm"));
+    System.out.println("Active Patients: " + dao.getActivePatients());
+    System.out.println("Total Patients: " + dao.getTotalPatients());
 
 
   }
@@ -453,5 +454,58 @@ public class PatientDAOImpl implements PatientDAO{
       }
 
     }
+  }
+
+  @Override
+  public int getActivePatients() {
+
+    connection = DBConnection.getConnection();
+    int activePatients = 0;
+    try {
+      String query = "SELECT COUNT(id) as activePatients FROM patients WHERE status='active' AND last_delete_date is NULL;";
+      pstm = connection.prepareStatement(query);
+      rs = pstm.executeQuery();
+      System.out.println(Helper.now() + ":✅ query succeeded: " + query);
+      if (rs.next()) {
+        activePatients = rs.getInt("activePatients");
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (connection != null) connection.close();
+        if (pstm != null) pstm.close();
+        if (rs != null) rs.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+    return activePatients;
+  }
+
+  @Override
+  public int getTotalPatients() {
+    connection = DBConnection.getConnection();
+    int totalPatients = 0;
+    try {
+      String query = "SELECT COUNT(id) as totalPatients FROM patients WHERE last_delete_date is NULL;";
+      pstm = connection.prepareStatement(query);
+      rs = pstm.executeQuery();
+      System.out.println(Helper.now() + ":✅ query succeeded: " + query);
+      if (rs.next()) {
+        totalPatients = rs.getInt("totalPatients");
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (connection != null) connection.close();
+        if (pstm != null) pstm.close();
+        if (rs != null) rs.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+    return totalPatients;
   }
 }
