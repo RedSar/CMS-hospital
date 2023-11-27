@@ -399,8 +399,8 @@
                               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane layoutX="9.0" layoutY="12.0" prefHeight="537.0" prefWidth="868.0"
-                                    AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0"
-                                    AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                    AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="9.0"
+                                    AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="12.0">
                            <styleClass>
                               <String fx:value="white-bg"/>
                               <String fx:value="shadow"/>
