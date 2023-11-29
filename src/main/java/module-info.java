@@ -7,8 +7,10 @@ module ma.rsmi.cms_hospital {
   requires org.hibernate.orm.core;
   requires java.sql;
     requires net.synedra.validatorfx;
+  requires fontawesomefx;
+  requires com.jfoenix;
 
-    opens fxml to javafx.fxml;
+  opens fxml to javafx.fxml;
   opens ma.rsmi.cms_hospital.controllers to javafx.fxml;
 
   exports ma.rsmi.cms_hospital;
