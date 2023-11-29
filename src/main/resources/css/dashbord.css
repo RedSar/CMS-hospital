@@ -103,3 +103,12 @@
     -fx-size: 16px;
     -fx-font-weight: bold;
 }
+
+.edit {
+    -fx-background-color: linear-gradient(to bottom right, #74D680, #378B29);
+    -fx-cursor: hand;
+}
+.delete {
+    -fx-background-color: linear-gradient(to bottom right, #FF0000, #FF7878);
+    -fx-cursor: hand;
+}

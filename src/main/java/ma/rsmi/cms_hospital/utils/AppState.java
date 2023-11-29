@@ -8,7 +8,7 @@ public class AppState {
     public static String doctorName;
     public static int patientId;
     public static String[] gender={"male", "femelle"};
-    public static String[] status={"Active", "Inactive", "Confirm"};
+    public static String[] status={"active", "inactive", "à confirmer"};
     public static String[] specialization={"Allergologue", "Dermatologue", "Ophtalmologue", "Gynécologue", "Cardiologue"} ;
     public static String[] portals = {"Administrateur", "Médecin", "Patient"};
 

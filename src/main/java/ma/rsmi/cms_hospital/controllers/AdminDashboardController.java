@@ -1,20 +1,23 @@
 package ma.rsmi.cms_hospital.controllers;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import ma.rsmi.cms_hospital.dao.*;
+import ma.rsmi.cms_hospital.entity.Doctor;
+import ma.rsmi.cms_hospital.entity.Patient;
 import ma.rsmi.cms_hospital.utils.AlertMessage;
 import ma.rsmi.cms_hospital.utils.AppState;
 
@@ -27,6 +30,7 @@ public class AdminDashboardController implements Initializable {
      private final  DoctorDAO doctorDAO = new DoctorDAOImpl();
      private final UserDAO adminDAO = new UserDAOImpl();
      private final PatientDAO patientDAO = new PatientDAOImpl();
+    private final ObservableList<Doctor> doctorsList = doctorDAO.findAll();
 
     @FXML
     private AreaChart<?, ?> acPatientsData;
@@ -185,7 +189,7 @@ public class AdminDashboardController implements Initializable {
     private TableColumn<?, ?> tcDoctorID;
 
     @FXML
-    private TableColumn<?, ?> tcDoctorsAction;
+    private TableColumn<Doctor, Void> tcDoctorsAction;
 
     @FXML
     private TableColumn<?, ?> tcDoctorsAddress;
@@ -284,13 +288,13 @@ public class AdminDashboardController implements Initializable {
     private TableView<?> tvAppointments;
 
     @FXML
-    private TableView<?> tvDoctors;
+    private TableView<Doctor> tvDoctors;
 
     @FXML
-    private TableView<?> tvDoctorsDashboard;
+    private TableView<Doctor> tvDoctorsDashboard;
 
     @FXML
-    private TableView<?> tvPatients;
+    private TableView<Patient> tvPatients;
 
     @FXML
     private TableView<?> tvPayment;
@@ -358,17 +362,95 @@ public class AdminDashboardController implements Initializable {
 
     }
 
-    private void fetchStatics() {
+    private void fetchStatistics() {
         lblActiveDoctors.setText(doctorDAO.getActiveDoctors() + "");
         lblActivePatients.setText(patientDAO.getActivePatients() + "");
         lblTotalPatient.setText(patientDAO.getTotalPatients() + "");
     }
 
+    private void displayDoctorsDataAdminDashboard(){
+        tvDoctorsDashboard.setItems(doctorsList);
+        tcDoctorID.setCellValueFactory(new PropertyValueFactory<>("doctorID"));
+        tcName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        tcSpecialized.setCellValueFactory(new PropertyValueFactory<>("specialized"));
+        tcStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+    }
+    private void displayDoctorsTable(){
+        tvDoctors.setItems(doctorsList);
+        tcDoctorsDoctorID.setCellValueFactory(new PropertyValueFactory<>("doctorID"));
+        tcDoctorsName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        tcDoctorsGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        tcDoctorsContactNumber.setCellValueFactory(new PropertyValueFactory<>("mobile"));
+        tcDoctorsEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tcDoctorsSpecialization.setCellValueFactory(new PropertyValueFactory<>("specialized"));
+        tcDoctorsAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        tcDoctorsStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        tcDoctorsAction.setCellFactory(param -> {
+          return new TableCell<>() {
+            final Button btnEdit = createButton("EDIT", "Editer", "edit");
+            final Button btnDelete = createButton("TRASH", "Supprimer", "delete");
+
+
+            {
+              btnEdit.setOnAction(event -> {
+                Doctor doctor = getTableView().getItems().get(getIndex());
+                System.out.println("Editer le médecin avec id: " + doctor.getId());
+              });
+              btnDelete.setOnAction(event -> {
+                Doctor doctor = getTableView().getItems().get(getIndex());
+                if (!alert.confirmationMessage("Vous êtes sûr de supprimer les données du médecin:\n- Id :  "+doctor.getDoctorID()+"\n- Nom : "+doctor.getFullName()))
+                    return;
+                System.out.println("Supprimer le médecin avec id: " + doctor.getId());
+                doctorDAO.deleteById(doctor.getId());
+
+                getTableView().getItems().remove(doctor);
+
+              });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+              super.updateItem(item, empty);
+              if (empty) {
+                setGraphic(null);
+              } else {
+                setGraphic(createHBox(btnEdit, btnDelete));
+              }
+            }
+
+            private HBox createHBox(Button... buttons) {
+              HBox box = new HBox(buttons);
+              box.setSpacing(10);
+              box.setAlignment(Pos.CENTER);
+              return box;
+            }
+
+            private Button createButton(String iconName, String message, String className){
+                Button button = new Button();
+                FontAwesomeIcon icon = new FontAwesomeIcon();
+                icon.setGlyphName(iconName);
+                Tooltip tooltip = new Tooltip(message);
+                button.setTooltip(tooltip);
+                button.getStyleClass().add(className);
+                button.setGraphic(icon);
+                button.setPrefWidth(30.0);
+                return button;
+            }
+
+
+          };
+        });
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fetchStatics();
+        fetchStatistics();
         setAdminData();
+        displayDoctorsDataAdminDashboard();
+        displayDoctorsTable();
     }
 
     private void setAdminData() {

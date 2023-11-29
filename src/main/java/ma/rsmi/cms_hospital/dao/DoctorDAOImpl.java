@@ -154,9 +154,7 @@ public class DoctorDAOImpl implements DoctorDAO{
         return null;
       }
       if (rs.next()) {
-       ;
-        Timestamp deleteDateValue = rs.getTimestamp("last_modify_date");
-        LocalDateTime dateDelete = deleteDateValue!=null ? deleteDateValue.toLocalDateTime() : null;
+
         doctor = new Doctor(rs.getInt("id"),
                 rs.getString("doctorId"),
                 rs.getString("password"),
@@ -258,8 +256,8 @@ public class DoctorDAOImpl implements DoctorDAO{
                 rs.getString("address"),
                 rs.getString("image"),
                 rs.getTimestamp("date").toLocalDateTime(),
-                rs.getTimestamp("last_modify_date").toLocalDateTime(),
-                rs.getTimestamp("last_delete_date").toLocalDateTime()
+            Helper.checkDateIfNull( rs.getTimestamp("last_modify_date")),
+            Helper.checkDateIfNull(rs.getTimestamp("last_delete_date"))
         ));
       System.out.println(Helper.now() + ":✅ query succeeded: " + query);
     } catch (SQLException ex) {
@@ -293,9 +291,10 @@ public class DoctorDAOImpl implements DoctorDAO{
 
       if (rs.isBeforeFirst()) {
         try {
-          query = "DELETE FROM doctors WHERE id=?";
+          query = "UPDATE doctors SET last_delete_date=? WHERE id=?";
           pstm = connection.prepareStatement(query);
-          pstm.setInt(1, id);
+          pstm.setTimestamp(1, Timestamp.valueOf(LocalDateTime.now()));
+          pstm.setInt(2, id);
           pstm.executeUpdate();
           System.out.println(Helper.now() + ":✅ query succeeded: " + query);
         } catch (SQLException ex) {
