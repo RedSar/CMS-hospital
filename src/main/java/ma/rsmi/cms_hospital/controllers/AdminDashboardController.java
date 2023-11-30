@@ -1,6 +1,7 @@
 package ma.rsmi.cms_hospital.controllers;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,10 +22,12 @@ import ma.rsmi.cms_hospital.entity.Doctor;
 import ma.rsmi.cms_hospital.entity.Patient;
 import ma.rsmi.cms_hospital.utils.AlertMessage;
 import ma.rsmi.cms_hospital.utils.AppState;
+import ma.rsmi.cms_hospital.utils.Helper;
 
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class AdminDashboardController implements Initializable {
@@ -33,9 +36,10 @@ public class AdminDashboardController implements Initializable {
      private final UserDAO adminDAO = new UserDAOImpl();
      private final PatientDAO patientDAO = new PatientDAOImpl();
     private final ObservableList<Doctor> doctorsList = doctorDAO.findAll();
+    private final ObservableList<Patient> patientsList = patientDAO.findAll();
 
     @FXML
-    private AreaChart<?, ?> acPatientsData;
+    private AreaChart<String, Number> acPatientsData;
 
     @FXML
     private AnchorPane apAdminDashboard;
@@ -221,7 +225,7 @@ public class AdminDashboardController implements Initializable {
     private TableColumn<?, ?> tcName;
 
     @FXML
-    private TableColumn<?, ?> tcPatientsAction;
+    private TableColumn<Patient, Void> tcPatientsAction;
 
     @FXML
     private TableColumn<?, ?> tcPatientsContactNumber;
@@ -301,6 +305,21 @@ public class AdminDashboardController implements Initializable {
     @FXML
     private TableView<?> tvPayment;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        fetchStatistics();
+        setAdminData();
+        displayDoctorsDataAdminDashboard();
+        displayDoctorsTable();
+        displayDoctorsChart();
+        displayPatientsChart();
+        displayPatientsTable();
+
+    }
+
+
+
+
     @FXML
     void onLogout(ActionEvent event) {
 
@@ -378,6 +397,7 @@ public class AdminDashboardController implements Initializable {
         tcStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     }
+
     private void displayDoctorsTable(){
         tvDoctors.setItems(doctorsList);
         tcDoctorsDoctorID.setCellValueFactory(new PropertyValueFactory<>("doctorID"));
@@ -391,10 +411,10 @@ public class AdminDashboardController implements Initializable {
 
         tcDoctorsAction.setCellFactory(param -> {
           return new TableCell<>() {
-            final Button btnEdit = createButton("EDIT", "Editer", "edit");
-            final Button btnDelete = createButton("TRASH", "Supprimer", "delete");
+            final Button btnEdit = Helper.createButton("EDIT", "Editer", "edit");
+            final Button btnDelete = Helper.createButton("TRASH", "Supprimer", "delete");
 
-
+            //Anonymous Initialization Block
             {
               btnEdit.setOnAction(event -> {
                 Doctor doctor = getTableView().getItems().get(getIndex());
@@ -406,59 +426,95 @@ public class AdminDashboardController implements Initializable {
                     return;
                 System.out.println("Supprimer le médecin avec id: " + doctor.getId());
                 doctorDAO.deleteById(doctor.getId());
-
                 getTableView().getItems().remove(doctor);
-
               });
             }
-
             @Override
             protected void updateItem(Void item, boolean empty) {
               super.updateItem(item, empty);
               if (empty) {
                 setGraphic(null);
               } else {
-                setGraphic(createHBox(btnEdit, btnDelete));
+                setGraphic(Helper.createHBox(btnEdit, btnDelete));
               }
             }
-
-            private HBox createHBox(Button... buttons) {
-              HBox box = new HBox(buttons);
-              box.setSpacing(10);
-              box.setAlignment(Pos.CENTER);
-              return box;
-            }
-
-            private Button createButton(String iconName, String message, String className){
-                Button button = new Button();
-                FontAwesomeIcon icon = new FontAwesomeIcon();
-                icon.setGlyphName(iconName);
-                Tooltip tooltip = new Tooltip(message);
-                button.setTooltip(tooltip);
-                button.getStyleClass().add(className);
-                button.setGraphic(icon);
-                button.setPrefWidth(30.0);
-                return button;
-            }
-
-
           };
+        });
+    }
+
+    private void displayPatientsTable() {
+        tvPatients.setItems(patientsList);
+        tcPatientsPatientID.setCellValueFactory(new PropertyValueFactory<>("patientID"));
+        tcPatientsName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        tcPatientsGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        tcPatientsContactNumber.setCellValueFactory(new PropertyValueFactory<>("mobile"));
+        tcPatientsDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        tcPatientsDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        tcPatientsDateModify.setCellValueFactory(new PropertyValueFactory<>("dateModify"));
+        tcPatientsDateDelete.setCellValueFactory(new PropertyValueFactory<>("dateDelete"));
+        tcPatientsStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        tcPatientsAction.setCellFactory(param -> {
+            return new TableCell<>() {
+                final Button btnEdit = Helper.createButton("EDIT", "Editer", "edit");
+                final Button btnDelete = Helper.createButton("TRASH", "Supprimer", "delete");
+
+                //Anonymous Initialization Block
+                {
+                    btnEdit.setOnAction(event -> {
+                        Patient patient = getTableView().getItems().get(getIndex());
+                        System.out.println("Editer le patient avec id: " + patient.getId());
+                    });
+                    btnDelete.setOnAction(event -> {
+                        Patient patient = getTableView().getItems().get(getIndex());
+                        if (!alert.confirmationMessage("Vous êtes sûr de supprimer les données du patient:\n- Id :  "+patient.getPatientID()+"\n- Nom : "+patient.getFullName()))
+                            return;
+                        System.out.println("Supprimer le médecin avec id: " + patient.getId());
+                        doctorDAO.deleteById(patient.getId());
+                        getTableView().getItems().remove(patient);
+                    });
+                }
+                @Override
+                protected void updateItem(Void item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(Helper.createHBox(btnEdit, btnDelete));
+                    }
+                }
+            };
         });
     }
 
     private void displayDoctorsChart(){
         bcDoctorsData.getData().clear();
-        bcDoctorsData.setData(doctorDAO.getDoctorsCharData());
+        ObservableList<XYChart.Series<String, Number>> chartData = FXCollections.observableArrayList();
+        for (Map<String, Object> item : doctorDAO.getDoctorsCharData()) {
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            String specialized = (String) item.get("specialized");
+            Number total = (Number) item.get("total");
+            series.setName(specialized);
+            series.getData().add(new XYChart.Data<>(specialized, total));
+            chartData.add(series);
+        }
+        bcDoctorsData.setData(chartData);
     }
 
+    private void displayPatientsChart() {
+        acPatientsData.getData().clear();
+        ObservableList<XYChart.Series<String, Number>> chartData = FXCollections.observableArrayList();
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        chartData.add(series);
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        fetchStatistics();
-        setAdminData();
-        displayDoctorsDataAdminDashboard();
-        displayDoctorsTable();
-        displayDoctorsChart();
+        for (Map<String, Object> item : patientDAO.getPatientsChartData().reversed()) {
+            String specialized = (String) item.get("month");
+            Number total = (Number) item.get("total");
+            series.setName("Total des patients par mois");
+            series.getData().add(new XYChart.Data<>(specialized, total));
+        }
+
+        acPatientsData.setData(chartData);
     }
 
     private void setAdminData() {

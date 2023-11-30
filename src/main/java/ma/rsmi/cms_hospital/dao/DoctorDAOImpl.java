@@ -12,6 +12,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.function.Consumer;
+
+import static java.util.concurrent.Executors.callable;
 
 public class DoctorDAOImpl implements DoctorDAO{
   Connection connection = null;
@@ -464,9 +469,9 @@ public class DoctorDAOImpl implements DoctorDAO{
   }
 
   @Override
-  public ObservableList<XYChart.Series<String, Number>> getDoctorsCharData() {
+  public List<Map<String, Object>> getDoctorsCharData() {
     connection = DBConnection.getConnection();
-    ObservableList<XYChart.Series<String, Number>> chartData = FXCollections.observableArrayList();
+    List<Map<String, Object>> chartData = new ArrayList();
 
     try {
       String query = "SELECT specialized,COUNT(*) as total FROM cms_hospital.doctors WHERE last_delete_date is NULL GROUP BY specialized;";
@@ -474,12 +479,12 @@ public class DoctorDAOImpl implements DoctorDAO{
       rs = pstm.executeQuery();
       System.out.println(Helper.now() + ":✅ query succeeded: " + query);
       while (rs.next()) {
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
         String specialized = rs.getString("specialized");
         Number total = rs.getInt("total");
-        series.setName(specialized);
-        series.getData().add(new XYChart.Data<>(specialized, total));
-        chartData.add(series);
+        Map<String, Object> hashMap = new HashMap<>();
+        hashMap.put("specialized", specialized);
+        hashMap.put("total", total);
+        chartData.add(hashMap);
       }
     } catch (SQLException e) {
       e.printStackTrace();
@@ -495,4 +500,52 @@ public class DoctorDAOImpl implements DoctorDAO{
     return chartData;
 
   }
+
+  @Override
+  public ObservableList<Doctor> getChartData() {
+    ObservableList<Doctor> doctors = FXCollections.observableArrayList();
+
+    connection = DBConnection.getConnection();
+    String query = "SELECT * FROM doctors";
+    try {
+      pstm = connection.prepareStatement(query);
+      rs = pstm.executeQuery();
+
+      while (rs.next())
+        doctors.add(new Doctor(rs.getInt("id"),
+                rs.getString("doctorId"),
+                rs.getString("password"),
+                rs.getString("full_name"),
+                rs.getString("email"),
+                rs.getString("status"),
+                rs.getString("gender"),
+                rs.getLong("mobile"),
+                rs.getString("specialized"),
+                rs.getString("address"),
+                rs.getString("image"),
+                rs.getTimestamp("date").toLocalDateTime(),
+                Helper.checkDateIfNull( rs.getTimestamp("last_modify_date")),
+                Helper.checkDateIfNull(rs.getTimestamp("last_delete_date"))
+        ));
+      System.out.println(Helper.now() + ":✅ query succeeded: " + query);
+    } catch (SQLException ex) {
+      ex.printStackTrace();
+      System.out.println(Helper.now() + ":❌ query failed: " + query);
+    } finally {
+      try {
+        if (connection != null) connection.close();
+        if (pstm != null) pstm.close();
+        if (rs != null) rs.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+
+
+    }
+
+    return doctors;
+  }
+
+
+
 }

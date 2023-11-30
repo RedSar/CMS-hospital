@@ -8,6 +8,10 @@ import ma.rsmi.cms_hospital.utils.Helper;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class PatientDAOImpl implements PatientDAO{
   Connection connection = null;
@@ -16,8 +20,7 @@ public class PatientDAOImpl implements PatientDAO{
 
   public static void main(String[] args) {
     PatientDAO dao = new PatientDAOImpl();
-    System.out.println("Active Patients: " + dao.getActivePatients());
-    System.out.println("Total Patients: " + dao.getTotalPatients());
+    System.out.println("Active Patients: " + dao.findAll());
 
 
   }
@@ -508,5 +511,39 @@ public class PatientDAOImpl implements PatientDAO{
       }
     }
     return totalPatients;
+  }
+
+  @Override
+  public List<Map<String, Object>> getPatientsChartData() {
+    connection = DBConnection.getConnection();
+    List<Map<String, Object>> chartData = new ArrayList();
+    try {
+      String query = "SELECT concat(month(date),\"-\",year(date)) as month, count(*) as total FROM cms_hospital.patients\n" +
+              "GROUP BY concat(month(date),\"-\",year(date)), month(date),year(date)\n" +
+              "ORDER BY year(date)desc, month(date) desc \n" +
+              "LIMIT 5;";
+      pstm = connection.prepareStatement(query);
+      rs = pstm.executeQuery();
+      System.out.println(Helper.now() + ":✅ query succeeded: " + query);
+      while (rs.next()) {
+        String month = rs.getString("month");
+        Number total = rs.getInt("total");
+        Map<String, Object> hashMap = new HashMap<>();
+        hashMap.put("month", month);
+        hashMap.put("total", total);
+        chartData.add(hashMap);
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (connection != null) connection.close();
+        if (pstm != null) pstm.close();
+        if (rs != null) rs.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+    return chartData;
   }
 }

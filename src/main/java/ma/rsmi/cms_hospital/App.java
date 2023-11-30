@@ -20,7 +20,7 @@ public class App extends Application {
     Font.loadFont(getClass().getResourceAsStream("/fonts/Abel/Abel-Regular.ttf"), 14);
     //root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/admin-portal.fxml")));
     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/admin-dashboard.fxml")));
-    root.setStyle("-fx-font-family: 'Abel';");
+    root.setStyle("-fx-font-family: 'Roboto';");
     Scene scene = new Scene(root);
     stage.setTitle("CMS hospital | Point d'accés");
     stage.setScene(scene);

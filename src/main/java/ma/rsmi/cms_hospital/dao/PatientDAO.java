@@ -4,6 +4,9 @@ package ma.rsmi.cms_hospital.dao;
 import javafx.collections.ObservableList;
 import ma.rsmi.cms_hospital.entity.Patient;
 
+import java.util.List;
+import java.util.Map;
+
 public interface PatientDAO {
 
   public abstract Patient findById(int id);
@@ -17,4 +20,5 @@ public interface PatientDAO {
   public abstract void update(Patient patient);
   public abstract int getActivePatients();
   public abstract int getTotalPatients();
+  List<Map<String, Object>> getPatientsChartData();
 }

@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Added: doctors-dashboard and detailed doctors Lists">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/BarCharDemo.java" afterDir="false" />
+    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Added : admin-dashboard.fxml sidebar functionalities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/BarCharDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/BarCharDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminDashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin-dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin-dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +66,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -147,9 +152,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.PatientDAOImpl" />
         <item itemvalue="Application.BarCharDemo" />
         <item itemvalue="Application.DoctorDAOImpl" />
-        <item itemvalue="Application.PatientDAOImpl" />
         <item itemvalue="JUnit.DoctorDAOImplTest.save_test" />
       </list>
     </recent_temporary>
@@ -187,15 +192,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700265199468</updated>
     </task>
-    <task id="LOCAL-00004" summary="Added: doctors-dashboard and detailed doctors Lists">
+    <task id="LOCAL-00004" summary="Adding the Admin dashboard (header and sidebar)">
       <option name="closed" value="true" />
-      <created>1701252822938</created>
+      <created>1700504799557</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1701252822938</updated>
+      <updated>1700504799557</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added : admin-dashboard.fxml sidebar functionalities">
+      <option name="closed" value="true" />
+      <created>1700780630092</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700780630092</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -207,8 +220,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Set up the design of the login and register form" />
     <MESSAGE value="Set up the design of the login and register form for doctors" />
-    <MESSAGE value="Added: doctors-dashboard and detailed doctors Lists" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: doctors-dashboard and detailed doctors Lists" />
+    <MESSAGE value="Adding the Admin dashboard (header and sidebar)" />
+    <MESSAGE value="Added : admin-dashboard.fxml sidebar functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added : admin-dashboard.fxml sidebar functionalities" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

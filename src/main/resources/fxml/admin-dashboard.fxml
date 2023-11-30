@@ -253,12 +253,21 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <AreaChart fx:id="acPatientsData" layoutX="-98.0" layoutY="-1.0" prefHeight="163.0" prefWidth="383.0" title="Les patients" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AreaChart fx:id="acPatientsData"
+                                               layoutX="-98.0"
+                                               layoutY="-1.0"
+                                               prefHeight="163.0"
+                                               prefWidth="383.0"
+                                               title="Les patients"
+                                               AnchorPane.bottomAnchor="0.0"
+                                               AnchorPane.leftAnchor="0.0"
+                                               AnchorPane.rightAnchor="0.0"
+                                               AnchorPane.topAnchor="0.0">
                                        <xAxis>
-                                          <CategoryAxis side="BOTTOM" />
+                                          <CategoryAxis side="BOTTOM"/>
                                        </xAxis>
                                        <yAxis>
-                                          <NumberAxis side="LEFT" />
+                                          <NumberAxis side="LEFT"/>
                                        </yAxis>
                                     </AreaChart>
                                  </children>

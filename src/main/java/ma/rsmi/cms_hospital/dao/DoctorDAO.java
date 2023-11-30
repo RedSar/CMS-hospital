@@ -5,8 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 import ma.rsmi.cms_hospital.entity.Doctor;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface DoctorDAO {
 
@@ -20,5 +20,8 @@ public interface DoctorDAO {
   public abstract void save(Doctor doctor);
   public abstract void update(Doctor doctor);
   public abstract int getActiveDoctors();
-  public ObservableList<XYChart.Series<String, Number>> getDoctorsCharData();
+
+  public List<Map<String, Object>> getDoctorsCharData();
+
+  ObservableList<Doctor> getChartData();
 }
