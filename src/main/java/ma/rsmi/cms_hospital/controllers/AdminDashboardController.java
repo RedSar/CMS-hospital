@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +23,7 @@ import ma.rsmi.cms_hospital.utils.AlertMessage;
 import ma.rsmi.cms_hospital.utils.AppState;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -63,7 +65,7 @@ public class AdminDashboardController implements Initializable {
     private AnchorPane apProfile;
 
     @FXML
-    private BarChart<?, ?> bcDoctorsData;
+    private BarChart<String,Number> bcDoctorsData;
 
     @FXML
     private Button btnAppointments;
@@ -444,6 +446,11 @@ public class AdminDashboardController implements Initializable {
         });
     }
 
+    private void displayDoctorsChart(){
+        bcDoctorsData.getData().clear();
+        bcDoctorsData.setData(doctorDAO.getDoctorsCharData());
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -451,6 +458,7 @@ public class AdminDashboardController implements Initializable {
         setAdminData();
         displayDoctorsDataAdminDashboard();
         displayDoctorsTable();
+        displayDoctorsChart();
     }
 
     private void setAdminData() {

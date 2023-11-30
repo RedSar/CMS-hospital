@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Set up the design of the login and register form for doctors">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/doctors.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/patients.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="59f9fc81-31a5-4d1a-82c2-8b65f074b896" name="Changes" comment="Added: doctors-dashboard and detailed doctors Lists">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/BarCharDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/controllers/AdminDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/DoctorDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/dao/PatientDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/AppState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/rsmi/cms_hospital/utils/AppState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/dashbord.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/dashbord.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin-dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin-dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,20 +50,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/RadouaneGuerchal/IdeaProjects/CMS-hospital/src/main/resources/fxml",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RadouaneGuerchal/IdeaProjects/CMS-hospital/src/main/resources/fxml&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ma.rsmi.cms_hospital.utils" />
@@ -92,6 +84,19 @@
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ma.rsmi.cms_hospital.App" />
+      <module name="CMS_hospital" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ma.rsmi.cms_hospital.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BarCharDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ma.rsmi.cms_hospital.BarCharDemo" />
       <module name="CMS_hospital" />
       <extension name="coverage">
         <pattern>
@@ -129,16 +134,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DoctorDAOImplTest.deleteById_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CMS_hospital" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DoctorDAOImplTest" />
-      <option name="METHOD_NAME" value="deleteById_test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DoctorDAOImplTest.save_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMS_hospital" />
       <option name="PACKAGE_NAME" value="" />
@@ -152,10 +147,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.PatientDAOImpl" />
+        <item itemvalue="Application.BarCharDemo" />
         <item itemvalue="Application.DoctorDAOImpl" />
+        <item itemvalue="Application.PatientDAOImpl" />
         <item itemvalue="JUnit.DoctorDAOImplTest.save_test" />
-        <item itemvalue="JUnit.DoctorDAOImplTest.deleteById_test" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700265199468</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added: doctors-dashboard and detailed doctors Lists">
+      <option name="closed" value="true" />
+      <created>1701252822938</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701252822938</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -204,7 +207,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Set up the design of the login and register form" />
     <MESSAGE value="Set up the design of the login and register form for doctors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set up the design of the login and register form for doctors" />
+    <MESSAGE value="Added: doctors-dashboard and detailed doctors Lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: doctors-dashboard and detailed doctors Lists" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

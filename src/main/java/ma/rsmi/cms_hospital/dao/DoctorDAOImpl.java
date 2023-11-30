@@ -2,12 +2,16 @@ package ma.rsmi.cms_hospital.dao;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 import ma.rsmi.cms_hospital.entity.Doctor;
 import ma.rsmi.cms_hospital.utils.DBConnection;
 import ma.rsmi.cms_hospital.utils.Helper;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class DoctorDAOImpl implements DoctorDAO{
   Connection connection = null;
@@ -16,7 +20,7 @@ public class DoctorDAOImpl implements DoctorDAO{
 
   public static void main(String[] args) {
     DoctorDAO dao = new DoctorDAOImpl();
-    System.out.println("Active Doctors: " + dao.getActiveDoctors());
+    System.out.println("chart data: " + dao.getDoctorsCharData());
   }
 
   @Override
@@ -457,5 +461,38 @@ public class DoctorDAOImpl implements DoctorDAO{
       }
     }
     return activeDoctors;
+  }
+
+  @Override
+  public ObservableList<XYChart.Series<String, Number>> getDoctorsCharData() {
+    connection = DBConnection.getConnection();
+    ObservableList<XYChart.Series<String, Number>> chartData = FXCollections.observableArrayList();
+
+    try {
+      String query = "SELECT specialized,COUNT(*) as total FROM cms_hospital.doctors WHERE last_delete_date is NULL GROUP BY specialized;";
+      pstm = connection.prepareStatement(query);
+      rs = pstm.executeQuery();
+      System.out.println(Helper.now() + ":✅ query succeeded: " + query);
+      while (rs.next()) {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        String specialized = rs.getString("specialized");
+        Number total = rs.getInt("total");
+        series.setName(specialized);
+        series.getData().add(new XYChart.Data<>(specialized, total));
+        chartData.add(series);
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (connection != null) connection.close();
+        if (pstm != null) pstm.close();
+        if (rs != null) rs.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    }
+    return chartData;
+
   }
 }
