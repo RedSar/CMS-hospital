@@ -311,9 +311,9 @@
                                  <children>
                                     <TableView fx:id="tvDoctorsDashboard" layoutX="13.0" layoutY="41.0" prefHeight="273.0" prefWidth="407.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="41.0">
                                        <columns>
-                                          <TableColumn fx:id="tcDoctorID" prefWidth="71.0" text="Doctor ID" />
-                                          <TableColumn fx:id="tcName" prefWidth="125.0" text="Name" />
-                                          <TableColumn fx:id="tcSpecialized" prefWidth="119.0" text="Specialized" />
+                                          <TableColumn fx:id="tcDoctorID" prefWidth="71.0" text="Id" />
+                                          <TableColumn fx:id="tcName" prefWidth="125.0" text="Nom" />
+                                          <TableColumn fx:id="tcSpecialized" prefWidth="119.0" text="Spécialité" />
                                           <TableColumn fx:id="tcStatus" prefWidth="89.0" text="Status" />
                                        </columns>
                                        <columnResizePolicy>

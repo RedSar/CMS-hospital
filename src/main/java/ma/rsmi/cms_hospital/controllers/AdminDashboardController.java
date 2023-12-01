@@ -470,7 +470,7 @@ public class AdminDashboardController implements Initializable {
                         if (!alert.confirmationMessage("Vous êtes sûr de supprimer les données du patient:\n- Id :  "+patient.getPatientID()+"\n- Nom : "+patient.getFullName()))
                             return;
                         System.out.println("Supprimer le médecin avec id: " + patient.getId());
-                        doctorDAO.deleteById(patient.getId());
+                        patientDAO.deleteById(patient.getId());
                         getTableView().getItems().remove(patient);
                     });
                 }

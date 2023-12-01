@@ -319,7 +319,7 @@ public class PatientDAOImpl implements PatientDAO{
           query = "UPDATE patients SET last_delete_date=? WHERE id=?";
           pstm = connection.prepareStatement(query);
           pstm.setTimestamp(1, Timestamp.valueOf(LocalDateTime.now()));
-          pstm.setInt(1, id);
+          pstm.setInt(2, id);
           pstm.executeUpdate();
           System.out.println(Helper.now() + ":✅ query succeeded: " + query);
         } catch (SQLException ex) {
